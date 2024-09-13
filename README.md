@@ -3,9 +3,9 @@
 ### 1. Creating an S3 Bucket (`thej-website`)
 
 - Go to the **Amazon S3** console.
-- Click **Create bucket**.
 - Name your bucket `thej-website`.
 - **Enable public access** settings to ensure your bucket is publicly accessible.
+- Click **Create bucket**.
 
 ### 2. Upload Required Source Files
 

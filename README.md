@@ -56,8 +56,3 @@
   ```
   URL: http://thej-website.s3-website-us-east-1.amazonaws.com
   ```
-```
-
-### Markdown-Formatted Content
-
-You can use this Markdown content in any `.md` file or a Markdown-supported editor to display it in a structured format.

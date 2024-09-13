@@ -1,48 +1,63 @@
-# aws-static-website
+## S3 Static Website Hosting
 
-#S3-Static website Hosting 
- 1. creating S3 bucket (thej-website) make sure Enable public access
+### 1. Creating an S3 Bucket (`thej-website`)
 
- 2. upload required source code or files 
-	Amazon S3>Buckets>thej-website>Upload
-		image.jfif
-		index.html
-		README.md
-		404.html
+- Go to the **Amazon S3** console.
+- Click **Create bucket**.
+- Name your bucket `thej-website`.
+- **Enable public access** settings to ensure your bucket is publicly accessible.
 
- 3. Enabe static website hosting 
-	Amazon S3>Buckets>thej-website>Edit static website hosting
-		Edit static website hosting
-			Static website hosting (select Enable)
-			Hosting type (select Host a static website)
-			Index document (index.html)
-			Error document - optional (404.html)
+### 2. Upload Required Source Files
 
-			- click on save changes 
+- Navigate to **Amazon S3 > Buckets > thej-website > Upload**.
+- Upload the following files:
+  - `image.jfif`
+  - `index.html`
+  - `README.md`
+  - `404.html`
 
- 4. Write Policy to Enable to access website from browser 
-	Amazon S3>Buckets>thej-website
-		thej-website 
-			Permissions
-				- Bucket policy
-				- Note : Make sure give /* after ARN 
-    ```
-	{
-	  "Id": "Policy1726213161993",
-	  "Version": "2012-10-17",
-	  "Statement": [
-	    {
-	      "Sid": "Stmt1726213155392",
-	      "Action": [
-	        "s3:GetObject"
-	      ],
-	      "Effect": "Allow",
-	      "Resource": "arn:aws:s3:::mybucket-950/*",
-	      "Principal": "*"
-	    }
-	  ]
-	}
-   ```
- 5. Now take url from static website hosting under properties 
-	Bucket website endpoint
-		url : http://thej-website.s3-website-us-east-1.amazonaws.com
+### 3. Enable Static Website Hosting
+
+- Go to **Amazon S3 > Buckets > thej-website > Edit static website hosting**.
+  - Select **Enable** for Static website hosting.
+  - Choose **Host a static website** for Hosting type.
+  - Set **Index document** to `index.html`.
+  - Set **Error document** (optional) to `404.html`.
+- Click **Save changes**.
+
+### 4. Write Policy to Enable Website Access from the Browser
+
+- Go to **Amazon S3 > Buckets > thej-website > Permissions > Bucket policy**.
+- Make sure to include `/*` after the ARN.
+  
+```json
+{
+  "Id": "Policy1726213161993",
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "Stmt1726213155392",
+      "Effect": "Allow",
+      "Principal": "*",
+      "Action": [
+        "s3:GetObject"
+      ],
+      "Resource": "arn:aws:s3:::thej-website/*"
+    }
+  ]
+}
+```
+
+### 5. Retrieve the Website URL
+
+- Go to **Static website hosting** under the **Properties** tab of your S3 bucket.
+- Note the **Bucket website endpoint** URL:
+
+  ```
+  URL: http://thej-website.s3-website-us-east-1.amazonaws.com
+  ```
+```
+
+### Markdown-Formatted Content
+
+You can use this Markdown content in any `.md` file or a Markdown-supported editor to display it in a structured format.
